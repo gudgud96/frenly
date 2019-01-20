@@ -1,0 +1,66 @@
+{
+  "name": "frenly",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Toxic comments? Get rid of them! Build a friendly web community.",
+//  "background": {
+//    "scripts": [
+//      "background.js",
+//      "typed.js",
+//      "jquery-1.11.3.min.js",
+//      "anime.min.js"
+//    ],
+//    "persistent": false
+//  },
+  "icons": {
+    "128": "frenlylogo.png",
+    "48": "frenlylaptop48.png",
+    "16": "frenlylaptop.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "frenlylaptop.png",
+      "48": "frenlylaptop48.png",
+      "32": "frenlylaptop.png"
+    },
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "css": [
+        "style.css",
+        "bootstrap.min.css",
+        "font-awesome.min.css"
+      ],
+      "js": [
+        "jquery-1.11.3.min.js",
+        "content.js",
+        "bootstrap.min.js",
+        "bootstrap.bundle.min.js",
+        "write.js",
+        "baffle.min.js",
+        "anime.min.js"
+      ],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    "icon.png",
+    "stop-being-rude-1.jpg",
+    "stop-being-rude-2.jpg",
+    "stop-being-rude-3.jpg",
+    "stop-being-rude-4.jpg",
+    "stop-being-rude-5.jpg",
+    "stop-being-rude-6.jpg",
+    "stop-being-rude-7.jpg",
+    "bright.jpg"
+  ],
+  "permissions": [
+    "tabs",
+    "<all_urls>",
+    "storage"
+  ]
+}

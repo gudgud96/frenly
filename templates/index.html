@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="images/favicon.ico" type="image/ico" />
+
+    <title>Social Media Health Status</title>
+
+    <!-- Bootstrap -->
+    <link href="static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="static/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="static/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="static/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+	
+    <!-- bootstrap-progressbar -->
+    <link href="static/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="static/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="static/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="static/build/css/custom.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <!-- page content -->
+        <div class="right_col" role="main">
+
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row x_title">
+                  <div class="col-md-6">
+                    <h2>Social Media Health Status</h2>
+                  </div>
+                  <div class="col-md-6">
+                  </div>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h3>Negativity</h3>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <div id="echart_gauge_1" style="height:370px;"></div>
+                  </div>
+                </div>
+              </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h3>Subjectivity</h3>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <div id="echart_gauge_2" style="height:370px;"></div>
+                  </div>
+                </div>
+              </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                  <div class="x_panel tile fixed_height_320 overflow_hidden">
+                    <div class="x_title">
+                      <h3>Social Media Usage</h3>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                      <table class="" style="width:100%">
+                        <tr>
+                          <th style="width:37%;">
+                            <p></p>
+                          </th>
+                          <th>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                              <p class="">Social Media</p>
+                            </div>
+                          </th>
+                        </tr>
+                        <tr>
+                          <td>
+                            <canvas class="canvasDoughnut" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
+                          </td>
+                          <td>
+                            <table class="tile_info">
+                              <tr>
+                                <td>
+                                  <p><i class="fa fa-square blue"></i>Facebook</p>
+                                </td>
+                                <td id="fb_usage">{{ fb_usage }}</td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <p><i class="fa fa-square aero"></i>Twitter </p>
+                                </td>
+                                <td id="twitter_usage">{{ twit_usage }}</td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="x_panel tile fixed_height_320">
+                <div class="x_title">
+                  <h3>Facebook Top 5 Words</h3>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span id="fb_1">{{ fb_1 }}</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 66%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span id="fb_1_val">{{ fb_1_val }}</span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span id="fb_2">{{ fb_2 }}</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 66%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span id="fb_2_val">{{ fb_2_val }}</span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span id="fb_3">{{ fb_3 }}</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span id="fb_3_val">{{ fb_3_val }}</span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span id="fb_4">{{ fb_4 }}</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span id="fb_4_val">{{ fb_4_val }}</span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span id="fb_5">{{ fb_5 }}</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span id="fb_5_val">{{ fb_5_val }}</span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="x_panel tile fixed_height_320">
+                <div class="x_title">
+                  <h3>Twitter Top 5 Words</h3>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span id="twi_1">{{ twi_1 }}</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 66%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span id="twi_1_val">{{ twi_1_val }}</span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span id="twi_2">{{ twi_2 }}</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span id="twi_2_val">{{ twi_2_val }}</span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span id="twi_3">{{ twi_3 }}</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span id="twi_3_val">{{ twi_3_val }}</span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span id="twi_4">{{ twi_4 }}</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 22%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span id="twi_4_val">{{ twi_4_val }}</span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span id="twi_5">{{ twi_5 }}</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 22%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span id="twi_5_val">{{ twi_5_val }}</span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          <!-- footer content -->
+          <footer>
+          <div class="pull-right">
+            Brought to you by - frenly © Copyright Reserved.
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+        </div>
+        <!-- /page content -->
+
+        <div style="display:none;" id="data">
+            {{ data }}
+        </div>
+        <div style="display:none;" id="fb">
+            {{ fb }}
+        </div>
+        <div style="display:none;" id="fb_val">
+            {{ fb_val }}
+        </div>
+        <div style="display:none;" id="twit">
+            {{ twit }}
+        </div>
+        <div style="display:none;" id="twit_val">
+            {{ twit_val }}
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="static/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="static/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="static/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="static/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="static/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="static/vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="static/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="static/vendors/Flot/jquery.flot.js"></script>
+    <script src="static/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="static/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="static/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="static/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="static/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="static/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="static/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="static/vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="static/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="static/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="static/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="static/vendors/moment/min/moment.min.js"></script>
+    <script src="static/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- ECharts -->
+    <script src="static/vendors/echarts/dist/echarts.min.js"></script>
+    <script src="static/vendors/echarts/map/js/world.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="static/build/js/custom.js"></script>
+	
+  </body>
+</html>

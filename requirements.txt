@@ -1,0 +1,10 @@
+Click==7.0
+Flask==1.0.2
+itsdangerous==1.1.0
+Jinja2==2.10
+MarkupSafe==1.1.0
+nltk==3.4
+singledispatch==3.4.0.3
+six==1.12.0
+textblob==0.15.2
+Werkzeug==0.14.1
