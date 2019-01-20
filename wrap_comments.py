@@ -9,11 +9,6 @@ ID = 429533649
 
 
 def get_twitter_comments(id):
-    CONSUMER_KEY = '4aGEzpgGbaBPsxOJX0cCEmj5y'
-    CONSUMER_SECRET = 'WQ02CnN2Q351aM2hQF85eZBBFfRgKXdkVZIGBNzNMlsfF4toq0'
-    OAUTH_TOKEN = '429533649-21FyLeH3KI8Gif5O1AwyUK6xn31sXRd22eWG9wv2'
-    OAUTH_TOKEN_SECRET = 'folgRGdgKPL6OxUY72BizajNOdp7v5dE1N42aSKMSWQhj'
-
     auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
     auth.set_access_token(OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
     api = tweepy.API(auth)
@@ -59,7 +54,6 @@ def get_twitter_comments(id):
 
 
 def get_facebook_comments():
-    access_token = "EAACAVjsVZAZAsBAHNa1IB8ik5rEx3cFv3r3MgDLnC6QE2gK9jxxLPyHzlTggW57SCczhQWT3xon2FYHjNZA6JxfL2oLRHT2pYYaYzBwHgegbCjyKtWstmVwU47gxZB1YF96QxGVSLZALGOrs9tS5PtAbYSByFYfL3k6hpI8Y7FgZDZD"
     graph = facebook.GraphAPI(access_token=access_token)
     events = graph.request('/me/feed')
     result = {}  # output as json
